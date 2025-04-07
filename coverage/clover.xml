@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1743775685319" clover="3.2.0">
+  <project timestamp="1743775685319" name="All files">
+    <metrics statements="14" coveredstatements="13" conditionals="4" coveredconditionals="3" methods="6" coveredmethods="6" elements="24" coveredelements="22" complexity="0" loc="14" ncloc="14" packages="4" files="4" classes="4"/>
+    <package name="00-MockFunctions">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="forEach.ts" path="/Users/jose.villanueva/workshop/test2/vite-project/src/exercise/00-MockFunctions/forEach.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="7" count="12" type="stmt"/>
+      </file>
+    </package>
+    <package name="01-MockModule">
+      <metrics statements="5" coveredstatements="4" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
+      <file name="convertCase.ts" path="/Users/jose.villanueva/workshop/test2/vite-project/src/exercise/01-MockModule/convertCase.ts">
+        <metrics statements="5" coveredstatements="4" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="9" count="5" type="cond" truecount="3" falsecount="1"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="03-ReactDom">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <file name="Counter.tsx" path="/Users/jose.villanueva/workshop/test2/vite-project/src/exercise/03-ReactDom/Counter.tsx">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="04-ReactTestingLibrary">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="Users.tsx" path="/Users/jose.villanueva/workshop/test2/vite-project/src/exercise/04-ReactTestingLibrary/Users.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
