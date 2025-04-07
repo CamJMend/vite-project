@@ -14,40 +14,32 @@ The snapshot should be saved in a __snapshots__ directory next to the test file.
 The snapshot file should be named SuperHeros.test.ts.snap.
 */
 
-import { getFlyingSuperHeros } from "./getFlyingSuperHeros";
-import { superHeros } from "./superHeros";
-
-jest.mock("./getFlyingSuperHeros");
-
-const mockedGetFlyingSuperHeros = getFlyingSuperHeros as jest.MockedFunction<typeof getFlyingSuperHeros>;
-
-describe("getFlyingSuperHeros", () => {
-  beforeEach(() => {
-    jest.clearAllMocks();
+import { getFlyingSuperHeros } from "./getFlyingSuperHeros"
+import * as superheros from "./superHeros";
+// SuperHeros.test.ts
+describe("getFlyingSuperHeros function", () => {
+  it("should return an empty array if no superheros have the 'Fly' power", () => {
+    const modifiedSuperHeros = superheros.superHeros.filter(
+      (hero) => !hero.power.includes("Fly")
+    );
+    const flyingHeros = getFlyingSuperHeros(modifiedSuperHeros);
+    expect(flyingHeros).toEqual([]);
   });
 
-  test("should return an empty array if no superheros have the 'Fly' power", () => {
-    const heroesWithoutFly = superHeros.filter(hero => !hero.power.includes("Fly"));
-    mockedGetFlyingSuperHeros.mockReturnValueOnce([]);
-
-    const result = getFlyingSuperHeros(heroesWithoutFly);
-    expect(result).toEqual([]);
+  it("should return an array of superHeros that have the 'Fly' power", () => {
+    const flyingHeros = getFlyingSuperHeros(superheros.superHeros);
+    expect(flyingHeros).toEqual([
+      { name: "Superman", power: ["Fly", "Super Strength"] },
+      {
+        name: "IronMan",
+        power: ["Intelligence", "Technology", "Fly", "Billionaire"],
+      },
+      { name: "GreenLantern", power: ["Energy Manipulation", "Fly"] },
+    ]);
   });
 
-  test("should return an array of superHeros that have the 'Fly' power", () => {
-    const flyingHeroes = superHeros.filter(hero => hero.power.includes("Fly"));
-    mockedGetFlyingSuperHeros.mockReturnValueOnce(flyingHeroes);
-
-    const result = getFlyingSuperHeros(superHeros);
-    expect(result).toEqual(flyingHeroes);
-  });
-
-  test("should match the snapshot of flying superheros", () => {
-    const flyingHeroes = superHeros.filter(hero => hero.power.includes("Fly"));
-    mockedGetFlyingSuperHeros.mockReturnValueOnce(flyingHeroes);
-
-    const result = getFlyingSuperHeros(superHeros);
-    expect(result).toMatchSnapshot();
+  it("should match the snapshot of flying superheros", () => {
+    const flyingHeros = getFlyingSuperHeros(superheros.superHeros);
+    expect(flyingHeros).toMatchSnapshot();
   });
 });
-

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`getFlyingSuperHeros should match the snapshot of flying superheros 1`] = `
+exports[`getFlyingSuperHeros function should match the snapshot of flying superheros 1`] = `
 [
   {
     "name": "Superman",
@@ -27,3 +27,4 @@ exports[`getFlyingSuperHeros should match the snapshot of flying superheros 1`] 
   },
 ]
 `;
+
