@@ -64,9 +64,9 @@ describe("convertCase with mocked utils functions", () => {
     const result2 = convertCase(inputString, 'reverse');
 
     // Set the mock return value to the expected output
-    toUpperCaseSpy.mockReturnValue(outputString);
-    toLowerCaseSpy.mockReturnValue(outputString);
-    reverseStringSpy.mockReturnValue(outputString);
+    mockedUtils.toUpperCase.mockReturnValue(outputString);
+    mockedUtils.toLowerCase.mockReturnValue(outputString);
+    mockedUtils.reverseString.mockReturnValue(outputString);
 
     expect(toUpperCaseSpy).toHaveBeenCalledWith(inputString);
     expect(toLowerCaseSpy).toHaveBeenCalledWith(inputString);
