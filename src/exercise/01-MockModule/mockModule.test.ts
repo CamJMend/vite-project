@@ -68,9 +68,9 @@ describe("convertCase with mocked utils functions", () => {
     mockedUtils.toLowerCase.mockReturnValue(outputString);
     mockedUtils.reverseString.mockReturnValue(outputString);
 
-    expect(toUpperCaseSpy).toHaveBeenCalledWith(inputString);
-    expect(toLowerCaseSpy).toHaveBeenCalledWith(inputString);
-    expect(reverseStringSpy).toHaveBeenCalledWith(inputString);
+    expect(mockedUtils.toUpperCase).toHaveBeenCalledWith(inputString);
+    expect(mockedUtils.toLowerCase).toHaveBeenCalledWith(inputString);
+    expect(mockedUtils.reverseString).toHaveBeenCalledWith(inputString);
 
     expect(result).toBe(outputString)
     expect(result1).toBe(outputString)
