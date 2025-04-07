@@ -46,3 +46,46 @@ test('counter increments and decrements when the buttons are clicked', () => {
   })
 
   */
+
+  import React, { act } from "react";
+  import { createRoot } from "react-dom/client";
+  import Counter from "./Counter";
+  
+  let container: HTMLDivElement;
+  
+  beforeEach(() => {
+    // Limpiar
+    container?.remove();
+    container = document.createElement("div");
+    document.body.appendChild(container);
+  });
+  
+  afterEach(() => {
+    // Eliminar el contenedor después del test
+    container.remove();
+  });
+  
+  test("counter increments and decrements when the buttons are clicked", () => {
+    act(() => {
+      const root = createRoot(container);
+      root.render(<Counter />);
+    });
+  
+    const buttons = container.querySelectorAll("button");
+    const [incrementButton, decrementButton] = buttons;
+  
+    const header = container.querySelector("h1") as HTMLElement;
+  
+    expect(header.textContent).toBe("Counter: 0");
+  
+    act(() => {
+      incrementButton.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    });
+    expect(header.textContent).toBe("Counter: 1");
+  
+    act(() => {
+      decrementButton.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+    });
+    expect(header.textContent).toBe("Counter: 0");
+  });
+  

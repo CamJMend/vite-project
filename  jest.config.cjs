@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = {
-  testEnvironment: "jest-environment-jsdom",
+  testEnvironment: "jsdom",
   transform: {
     "^.+\\.tsx?$": "ts-jest",
   },
