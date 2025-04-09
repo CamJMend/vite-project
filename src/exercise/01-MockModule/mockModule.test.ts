@@ -59,22 +59,25 @@ describe("convertCase with mocked utils functions", () => {
   it('Test cases for the empty string', () => {
     const inputString = '';
     const outputString = '';
-    const result = convertCase(inputString, 'upper');
-    const result1 = convertCase(inputString, 'lower');
-    const result2 = convertCase(inputString, 'reverse');
 
-    // Set the mock return value to the expected output
+    // Primero define los valores de retorno
     mockedUtils.toUpperCase.mockReturnValue(outputString);
     mockedUtils.toLowerCase.mockReturnValue(outputString);
     mockedUtils.reverseString.mockReturnValue(outputString);
 
+    // Luego llama a la función
+    const result = convertCase(inputString, 'upper');
+    const result1 = convertCase(inputString, 'lower');
+    const result2 = convertCase(inputString, 'reverse');
+
+    // Validaciones
     expect(mockedUtils.toUpperCase).toHaveBeenCalledWith(inputString);
     expect(mockedUtils.toLowerCase).toHaveBeenCalledWith(inputString);
     expect(mockedUtils.reverseString).toHaveBeenCalledWith(inputString);
 
-    expect(result).toBe(outputString)
-    expect(result1).toBe(outputString)
-    expect(result2).toBe(outputString)
+    expect(result).toBe(outputString);
+    expect(result1).toBe(outputString);
+    expect(result2).toBe(outputString);
   });
 
 });

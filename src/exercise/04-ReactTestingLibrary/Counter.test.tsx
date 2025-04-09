@@ -22,17 +22,10 @@ Here's a simple example of how to use this:
 */
 
 // javascript
+import React from "react";
 import { render, fireEvent, screen } from "@testing-library/react";
-
-test("it works", () => {
-  const { container } = render(<Example />);
-  // container is the div that your component has been mounted onto.
-
-  const input = container.querySelector("input");
-  fireEvent.mouseEnter(input); // fires a mouseEnter event on the input
-
-  screen.debug(); // logs the current state of the DOM (with syntax highlighting!)
-});
+import "@testing-library/jest-dom";
+import Counter from "../03-ReactDom/Counter"; 
 
 /*
 React Testing Library has the following automatic features:
@@ -101,3 +94,24 @@ test('counter increments and decrements when the buttons are clicked', () => {
 
 
 */
+
+describe("Counter component", () => {
+  test("shows initial count", () => {
+    render(<Counter />);
+    expect(screen.getByRole("heading", { name: /Counter: 0/i })).toBeInTheDocument();
+  });
+
+  test("increments the counter", () => {
+    render(<Counter />);
+    const incrementButton = screen.getByRole("button", { name: /increment/i });
+    fireEvent.click(incrementButton);
+    expect(screen.getByRole("heading", { name: /Counter: 1/i })).toBeInTheDocument();
+  });
+
+  test("decrements the counter", () => {
+    render(<Counter />);
+    const decrementButton = screen.getByRole("button", { name: /decrement/i });
+    fireEvent.click(decrementButton);
+    expect(screen.getByRole("heading", { name: /Counter: -1/i })).toBeInTheDocument();
+  });
+});
